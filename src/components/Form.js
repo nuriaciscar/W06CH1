@@ -1,4 +1,4 @@
-const Form = (text) => {
+const Form = ({ text }) => {
   return (
     <form autoComplete="off">
       <label>{text}</label>
