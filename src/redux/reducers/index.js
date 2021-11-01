@@ -1,8 +1,8 @@
-import cookiesReducer from "./cookiesReducer";
+import toDoReducer from "./toDoReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  cookies: cookiesReducer,
+  toDoList: toDoReducer,
 });
 
 export default rootReducer;
