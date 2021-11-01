@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 
-export const loadtoDoList = (toDoList) => ({
-  type: actionTypes.loadtoDoList,
+export const loadtoDoListAction = (toDoList) => ({
+  type: actionTypes.loadtoDoListAction,
   toDoList,
 });
