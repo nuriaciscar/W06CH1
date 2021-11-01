@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import toDoListThunk from "../redux/thunks/toDoThunks";
 
 const useToDoList = () => {
@@ -10,7 +11,7 @@ const useToDoList = () => {
     dispatch(toDoListThunk());
   }, [dispatch]);
 
-  return toDoList, loadToDoList;
+  return { toDoList, loadToDoList };
 };
 
 export default useToDoList;
