@@ -1,8 +1,9 @@
-const Task = ({ id, name, text }) => {
+const Task = ({ id, task }) => {
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{text}</p>
+      <p>{task}</p>
+      <button>Edit</button>
+      <button>Delete</button>
     </div>
   );
 };
