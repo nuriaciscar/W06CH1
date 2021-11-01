@@ -3,7 +3,7 @@ const Form = ({ text, submitDisabled }) => {
     <form autoComplete="off">
       <label>{text}</label>
       <input type="text">{text}</input>
-      <button type="submit" disabled={submitDisabled}>
+      <button type="button" disabled={submitDisabled}>
         {text}
       </button>
     </form>

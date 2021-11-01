@@ -9,3 +9,8 @@ export const getLocalApiAction = (task) => ({
   type: actionTypes.getLocalApi,
   task,
 });
+
+export const postLocalApiAction = (task) => ({
+  type: actionTypes.postLocalApi,
+  task,
+});

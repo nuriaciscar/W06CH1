@@ -12,6 +12,8 @@ const toDoReducer = (toDoList = [], action) => {
       newtoDoList = toDoList;
       break;
   }
+
+  return newtoDoList;
 };
 
 export default toDoReducer;
