@@ -1,6 +1,8 @@
 import actionTypes from "./actionTypes";
 
-export const loadCookiesList = (cookies) => ({
-  type: actionTypes.loadCookiesList,
-  cookies,
+export const loadCookiesList = (toDoList) => ({
+  type: actionTypes.loadtoDoList,
+  toDoList,
 });
+
+toDoList;
