@@ -1,11 +1,11 @@
 import actionTypes from "./actionTypes";
 
 export const loadtoDoListAction = (toDoList) => ({
-  type: actionTypes.loadtoDoListAction,
+  type: actionTypes.loadtoDoList,
   toDoList,
 });
 
-export const getLocalApiAction = (task) => ({
-  type: actionTypes.getLocalApi,
+export const createTasksAction = (task) => ({
+  type: actionTypes.createTask,
   task,
 });

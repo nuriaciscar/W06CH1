@@ -1,9 +1,27 @@
-import { loadtoDoListAction } from "../actions/actionCreator";
+import {
+  createTasksAction,
+  loadtoDoListAction,
+} from "../actions/actionCreator";
 
-const toDoListThunk = async () => async (dispatch) => {
-  const response = await fetch("http://localhost:4000/toDo");
+const urlApi = process.env.REACT_APP_URL_API;
+
+export const toDoListThunk = () => async (dispatch) => {
+  const response = await fetch(urlApi);
   const toDoList = await response.json();
+
   dispatch(loadtoDoListAction(toDoList));
 };
 
-export default toDoListThunk;
+export const createTaskThunk = (tasks) => async (dispatch) => {
+  console.log(tasks);
+  const response = await fetch(urlApi, {
+    method: "POST",
+    body: JSON.stringify(tasks),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const task = await response.json();
+
+  dispatch(createTasksAction(task));
+};
