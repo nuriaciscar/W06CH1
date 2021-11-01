@@ -1,17 +1,22 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import toDoListThunk from "../redux/thunks/toDoThunks";
+import { toDoListThunk, createTaskThunk } from "../redux/thunks/toDoThunks";
 
 const useToDoList = () => {
-  const toDoList = useSelector(({ toDoList }) => toDoList);
-  const dispatch = useDispatch;
+  const task = useSelector(({ toDoList }) => toDoList);
+  const dispatch = useDispatch();
 
   const loadToDoList = useCallback(() => {
     dispatch(toDoListThunk());
   }, [dispatch]);
 
-  return { toDoList, loadToDoList };
+  const createTask = (task) => {
+    dispatch(createTaskThunk(task));
+    console.log("Hola");
+  };
+
+  return { task, loadToDoList, createTask };
 };
 
 export default useToDoList;

@@ -8,6 +8,10 @@ const toDoReducer = (toDoList = [], action) => {
       newtoDoList = [...action.toDoList];
       break;
 
+    case actionTypes.createTask:
+      newtoDoList = [...toDoList, action.toDoList];
+      break;
+
     default:
       newtoDoList = toDoList;
       break;
