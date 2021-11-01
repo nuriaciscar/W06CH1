@@ -4,7 +4,7 @@ import useToDoList from "../../hooks/useToDoList";
 import Task from "../Task/Task";
 
 const Tasks = () => {
-  const { toDoList, loadToDoList } = useToDoList();
+  const { task, loadToDoList } = useToDoList();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,11 +12,15 @@ const Tasks = () => {
   }, [dispatch, loadToDoList]);
 
   return (
-    <ul>
-      {toDoList.map((toDo, id) => {
-        return <Task key={id} {...toDo} />;
-      })}
-    </ul>
+    <>
+      <div>
+        <ul>
+          {task.map((taskOne, id) => {
+            return <Task key={id} {...taskOne} />;
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 

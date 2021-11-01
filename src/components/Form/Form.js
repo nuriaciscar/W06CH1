@@ -34,7 +34,7 @@ const Form = () => {
         value={taskData.task}
       />
 
-      <button type="submit"></button>
+      <button type="submit">CREATE</button>
     </form>
   );
 };
