@@ -26,16 +26,26 @@ const Form = () => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleOnSubmit}>
-      <input
-        type="text"
-        onChange={changeData}
-        id="task"
-        value={taskData.task}
-      />
+    <div className="form-group">
+      <form
+        autoComplete="off"
+        onSubmit={handleOnSubmit}
+        className="form-inline"
+      >
+        <input
+          type="text"
+          onChange={changeData}
+          id="task"
+          value={taskData.task}
+          className="form-control 2"
+          placeholder="To Do..."
+        />
 
-      <button type="submit">CREATE</button>
-    </form>
+        <button className="btn btn-primary" type="submit">
+          CREATE
+        </button>
+      </form>
+    </div>
   );
 };
 

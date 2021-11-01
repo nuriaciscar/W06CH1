@@ -13,7 +13,7 @@ const Tasks = () => {
 
   return (
     <>
-      <div>
+      <div className="form-check">
         <ul>
           {task.map((taskOne, id) => {
             return <Task key={id} {...taskOne} />;
