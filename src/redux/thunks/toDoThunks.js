@@ -13,7 +13,6 @@ export const toDoListThunk = () => async (dispatch) => {
 };
 
 export const createTaskThunk = (tasks) => async (dispatch) => {
-  console.log(tasks);
   const response = await fetch(urlApi, {
     method: "POST",
     body: JSON.stringify(tasks),

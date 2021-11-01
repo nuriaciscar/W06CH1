@@ -13,7 +13,6 @@ const useToDoList = () => {
 
   const createTask = (task) => {
     dispatch(createTaskThunk(task));
-    console.log("Hola");
   };
 
   return { task, loadToDoList, createTask };
