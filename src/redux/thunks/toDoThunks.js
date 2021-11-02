@@ -1,5 +1,6 @@
 import {
   createTasksAction,
+  deleteTasksAction,
   loadtoDoListAction,
 } from "../actions/actionCreator";
 
@@ -23,4 +24,17 @@ export const createTaskThunk = (tasks) => async (dispatch) => {
   const task = await response.json();
 
   dispatch(createTasksAction(task));
+};
+
+export const deleteTaskThunk = (tasks) => async (dispatch) => {
+  const response = await fetch(urlApi, {
+    method: "DELETE",
+    body: JSON.stringify(tasks),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const task = await response.json();
+  dispatch(deleteTasksAction(task));
 };

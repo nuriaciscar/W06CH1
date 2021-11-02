@@ -6,11 +6,7 @@ import { Provider } from "react-redux";
 describe("Given a Form component", () => {
   describe("When it's rendered'", () => {
     test("Then it renders a form", () => {
-      render(
-        <Provider>
-          <Form />
-        </Provider>
-      );
+      render(<Form />);
     });
   });
 
