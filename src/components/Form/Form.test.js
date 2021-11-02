@@ -1,9 +1,9 @@
 import Form from "./Form";
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
+import { screen } from "@testing-library/react";
 import configureStore from "../../redux/store";
 import renderWithProviders from "../../utils/test-utils";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a Form component", () => {
   describe("When it's rendered'", () => {
@@ -14,17 +14,26 @@ describe("Given a Form component", () => {
   });
 
   describe("When it's rendered", () => {
-    test("Then it should render a form with a label and a button Create", () => {
-      const inputForm = "To Do...";
-      const buttonForm = "CREATE";
-
+    test("Then it should render a input and a button Create", () => {
       renderWithProviders(<Form />);
 
-      const button = screen.getByRole("button", { task: inputForm });
-      const input = screen.getByRole("input", { task: buttonForm });
+      const inputText = screen.getByLabelText(/task:/i);
+      const buttonCreate = screen.getByRole("button", { name: /create/i });
 
-      expect(button).toBeInTheDocument();
-      expect(input).toBeInTheDocument();
+      expect(inputText).toBeInTheDocument();
+      expect(buttonCreate).toBeInTheDocument();
+    });
+  });
+
+  describe("When the user types in To Do input", () => {
+    test("Then it should render a To Do input with the text inside", () => {
+      renderWithProviders(<Form />);
+      const typedText = "hey";
+
+      const inputText = screen.getByLabelText(/task:/i);
+      userEvent.type(inputText, typedText);
+
+      expect(inputText).toHaveValue(typedText);
     });
   });
 });
