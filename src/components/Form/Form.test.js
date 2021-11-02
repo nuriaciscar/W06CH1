@@ -2,15 +2,14 @@ import Form from "./Form";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import configureStore from "../../redux/store";
+import renderWithProviders from "../../utils/test-utils";
 
 describe("Given a Form component", () => {
   describe("When it's rendered'", () => {
     test("Then it renders a form", () => {
-      render(
-        <Provider>
-          <Form />
-        </Provider>
-      );
+      const store = configureStore();
+      renderWithProviders(<Form />);
     });
   });
 
@@ -19,11 +18,7 @@ describe("Given a Form component", () => {
       const inputForm = "To Do...";
       const buttonForm = "CREATE";
 
-      render(
-        <Provider>
-          <Form />
-        </Provider>
-      );
+      renderWithProviders(<Form />);
 
       const button = screen.getByRole("button", { task: inputForm });
       const input = screen.getByRole("input", { task: buttonForm });

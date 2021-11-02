@@ -12,7 +12,6 @@ const Form = () => {
       ...taskData,
       [event.target.id]: event.target.value,
     });
-    console.log(event.target.value);
   };
 
   const { createTask, loadToDoList } = useToDoList();
@@ -20,7 +19,6 @@ const Form = () => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     createTask(taskData);
-    console.log(taskData);
     loadToDoList();
     setTaskData(initialData);
   };
