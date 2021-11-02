@@ -12,6 +12,10 @@ const toDoReducer = (toDoList = [], action) => {
       newtoDoList = [...toDoList, action.toDoList];
       break;
 
+    case actionTypes.deleteTask:
+      newtoDoList = toDoList.filter((toDo) => toDo.id !== action.id);
+      break;
+
     default:
       newtoDoList = toDoList;
       break;
