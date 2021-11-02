@@ -4,37 +4,42 @@ import {
   loadtoDoListAction,
 } from "../actions/actionCreator";
 
-const urlApi = process.env.REACT_APP_URL_API;
+// const urlApi = process.env.REACT_APP_URL_API;
 
 export const toDoListThunk = () => async (dispatch) => {
-  const response = await fetch(urlApi);
+  const response = await fetch(
+    "https://redux-challenge-api.herokuapp.com/toDo/"
+  );
   const toDoList = await response.json();
 
   dispatch(loadtoDoListAction(toDoList));
 };
 
 export const createTaskThunk = (tasks) => async (dispatch) => {
-  const response = await fetch(urlApi, {
-    method: "POST",
-    body: JSON.stringify(tasks),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    "https://redux-challenge-api.herokuapp.com/toDo/",
+    {
+      method: "POST",
+      body: JSON.stringify(tasks),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const task = await response.json();
 
   dispatch(createTasksAction(task));
 };
 
-export const deleteTaskThunk = (tasks) => async (dispatch) => {
-  const response = await fetch(urlApi, {
-    method: "DELETE",
-    body: JSON.stringify(tasks),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+export const deleteTaskThunk = (id) => async (dispatch) => {
+  const response = await fetch(
+    `https://redux-challenge-api.herokuapp.com/toDo/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
 
-  const task = await response.json();
-  dispatch(deleteTasksAction(task));
+  if (response.ok) {
+    dispatch(deleteTasksAction(id));
+  }
 };

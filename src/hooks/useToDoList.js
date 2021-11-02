@@ -1,7 +1,11 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toDoListThunk, createTaskThunk } from "../redux/thunks/toDoThunks";
+import {
+  toDoListThunk,
+  createTaskThunk,
+  deleteTaskThunk,
+} from "../redux/thunks/toDoThunks";
 
 const useToDoList = () => {
   const task = useSelector(({ toDoList }) => toDoList);
@@ -15,7 +19,11 @@ const useToDoList = () => {
     dispatch(createTaskThunk(task));
   };
 
-  return { task, loadToDoList, createTask };
+  const deleteTask = (id) => {
+    dispatch(deleteTaskThunk(id));
+  };
+
+  return { task, loadToDoList, createTask, deleteTask };
 };
 
 export default useToDoList;

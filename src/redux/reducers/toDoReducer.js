@@ -9,7 +9,7 @@ const toDoReducer = (toDoList = [], action) => {
       break;
 
     case actionTypes.createTask:
-      newtoDoList = [...toDoList, action.toDoList];
+      newtoDoList = [...toDoList, action.task];
       break;
 
     case actionTypes.deleteTask:
